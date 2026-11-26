@@ -741,6 +741,33 @@ h1 {
   }
 }
 
+/* Game Database Images */
+#database .database-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 7px;
+  margin-bottom: 16px;
+}
+
+#database .database-cards .card {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  #database .database-image {
+    aspect-ratio: 16 / 9;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  #database .database-image {
+    aspect-ratio: 16 / 9;
+  }
+}
+
   </style>
 </head>
 
@@ -856,34 +883,40 @@ h1 {
         <span>EXPLORE ANANTA</span>
       </div>
 
-      <div class="cards">
+   
+      <div class="cards database-cards">
         <a class="card" href="#characters">
-          <div class="card-icon">♟</div>
+          <img class="database-image" src="database-characters.jpg" alt="ANANTA Characters" loading="lazy">
           <h3>Characters</h3>
           <p>Character profiles and details.</p>
         </a>
+
         <a class="card" href="#guides">
-          <div class="card-icon">⌖</div>
+          <img class="database-image" src="database-locations.jpg" alt="ANANTA Locations and Maps" loading="lazy">
           <h3>Locations & Maps</h3>
           <p>Explore the world and its locations.</p>
         </a>
+
         <a class="card" href="#guides">
-          <div class="card-icon">⚔</div>
+          <img class="database-image" src="database-weapons.jpg" alt="ANANTA Weapons" loading="lazy">
           <h3>Weapons</h3>
           <p>Weapons and combat equipment.</p>
         </a>
+
         <a class="card" href="#guides">
-          <div class="card-icon">◇</div>
+          <img class="database-image" src="database-items.jpg" alt="ANANTA Items and Resources" loading="lazy">
           <h3>Items & Resources</h3>
           <p>Discover useful items and resources.</p>
         </a>
+
         <a class="card" href="#guides">
-          <div class="card-icon">☰</div>
+          <img class="database-image" src="database-missions.jpg" alt="ANANTA Missions and Quests" loading="lazy">
           <h3>Missions & Quests</h3>
           <p>Mission information and walkthroughs.</p>
         </a>
+
         <a class="card" href="#guides">
-          <div class="card-icon">⌘</div>
+          <img class="database-image" src="database-mechanics.jpg" alt="ANANTA Game Mechanics" loading="lazy">
           <h3>Game Mechanics</h3>
           <p>Understand gameplay systems.</p>
         </a>
