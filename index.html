@@ -568,6 +568,29 @@ h1 {
     linear-gradient(145deg, #302522, #171719);
 }
 
+@media (max-width: 768px) {
+  #characters .section-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  #characters .section-heading h2 {
+    font-size: clamp(16px, 4.5vw, 22px);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  #characters .section-heading span {
+    font-size: 9px;
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+}
+
   </style>
 </head>
 
