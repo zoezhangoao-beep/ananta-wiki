@@ -61,6 +61,37 @@
   font-weight: bold;
   letter-spacing: 1px;
 }
+    .countdown-grid {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0 12px;
+  flex-wrap: wrap;
+}
+
+.countdown-box {
+  background: linear-gradient(145deg, #3b3223, #252019);
+  border: 1px solid #d8b879;
+  border-radius: 10px;
+  padding: 12px 20px;
+  text-align: center;
+  min-width: 90px;
+}
+
+.countdown-box strong {
+  display: block;
+  color: #e5c787;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.countdown-box span {
+  display: block;
+  color: #d8b879;
+  font-size: 12px;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
     header {
       background: #15161a;
       border-bottom: 1px solid var(--border);
@@ -282,16 +313,7 @@
 </head>
 
 <body>
-<div class="countdown-banner">
-  <div class="countdown-title">
-    ANANTA GLOBAL LAUNCH
-  </div>
-  <div class="countdown-date">
-    January 15, 2027
-  </div>
-  <div id="countdown">
-    Loading countdown...
-  </div>
+
 </div>
 <header>
   <div class="container navbar">
@@ -316,7 +338,41 @@
         Explore characters, locations, gameplay guides,
         items and everything about the game.
       </p>
-      <a href="#database" class="button">Explore Database →</a>
+ <div class="countdown-banner">
+  <div class="countdown-title">
+    ANANTA GLOBAL LAUNCH
+  </div>
+
+  <div class="countdown-date">
+    January 15, 2027
+  </div>
+
+  <div id="countdown">
+    <div class="countdown-grid">
+      <div class="countdown-box">
+        <strong id="days">00</strong>
+        <span>DAYS</span>
+      </div>
+
+      <div class="countdown-box">
+        <strong id="hours">00</strong>
+        <span>HOURS</span>
+      </div>
+
+      <div class="countdown-box">
+        <strong id="minutes">00</strong>
+        <span>MINUTES</span>
+      </div>
+
+      <div class="countdown-box">
+        <strong id="seconds">00</strong>
+        <span>SECONDS</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="#database" class="button">Explore Database →</a>
     </div>
   </section>
 
@@ -445,23 +501,25 @@
   const launchDate = new Date(2027, 0, 15, 0, 0, 0).getTime();
 
   function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = launchDate - now;
-    const display = document.getElementById("countdown");
+  const now = new Date().getTime();
+  const distance = launchDate - now;
 
-    if (distance <= 0) {
-      display.textContent = "ANANTA IS NOW AVAILABLE!";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((distance / (1000 * 60)) % 60);
-    const seconds = Math.floor((distance / 1000) % 60);
-
-    display.textContent =
-      `${days} Days : ${hours} Hours : ${minutes} Minutes : ${seconds} Seconds`;
+  if (distance <= 0) {
+    document.getElementById("countdown").textContent =
+      "ANANTA IS NOW AVAILABLE!";
+    return;
   }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+
+  document.getElementById("days").textContent = String(days).padStart(2, "0");
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+}
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
