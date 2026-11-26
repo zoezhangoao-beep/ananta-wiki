@@ -614,6 +614,133 @@ h1 {
   }
 }
 
+/* Game Database */
+#database .cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+#database .card {
+  min-height: 190px;
+  padding: 24px;
+  background: linear-gradient(145deg, #202024, #151518);
+  border: 1px solid #39383a;
+  border-radius: 10px;
+  transition: transform .2s, border-color .2s;
+}
+
+#database .card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  #database .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  #database .card {
+    min-height: 180px;
+    padding: 18px;
+  }
+
+  #database .card h3 {
+    font-size: 15px;
+  }
+
+  #database .card p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 420px) {
+  #database .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Game Database */
+#database .cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+#database .card {
+  min-height: 190px;
+  padding: 24px;
+  background: linear-gradient(145deg, #202024, #151518);
+  border: 1px solid #39383a;
+  border-radius: 10px;
+  transition: transform .2s, border-color .2s;
+}
+
+#database .card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  #database .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  #database .card {
+    min-height: 180px;
+    padding: 18px;
+  }
+
+  #database .card h3 {
+    font-size: 15px;
+  }
+
+  #database .card p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 420px) {
+  #database .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Game Database Heading */
+#database .section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+#database .section-heading h2 {
+  color: #f4f3ef;
+  white-space: nowrap;
+}
+
+#database .section-heading span {
+  color: var(--gold);
+  white-space: nowrap;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 768px) {
+  #database .section-heading h2 {
+    font-size: clamp(18px, 4.5vw, 22px);
+  }
+
+  #database .section-heading span {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}
+
   </style>
 </head>
 
