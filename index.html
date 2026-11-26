@@ -33,7 +33,34 @@
       width: min(1160px, 92%);
       margin: auto;
     }
+.countdown-banner {
+  background: #191b20;
+  border-bottom: 1px solid #45403a;
+  text-align: center;
+  padding: 15px 12px;
+}
 
+.countdown-title {
+  color: #d8b879;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 4px;
+}
+
+.countdown-date {
+  color: #f4f3ef;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#countdown {
+  color: #d8b879;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
     header {
       background: #15161a;
       border-bottom: 1px solid var(--border);
@@ -255,7 +282,17 @@
 </head>
 
 <body>
-
+<div class="countdown-banner">
+  <div class="countdown-title">
+    ANANTA GLOBAL LAUNCH
+  </div>
+  <div class="countdown-date">
+    January 15, 2027
+  </div>
+  <div id="countdown">
+    Loading countdown...
+  </div>
+</div>
 <header>
   <div class="container navbar">
     <a href="#" class="logo">ANANTA <span>WIKI</span></a>
@@ -404,6 +441,30 @@
     <p>© 2026 ANANTA Wiki. All rights reserved.</p>
   </div>
 </footer>
+<script>
+  const launchDate = new Date(2027, 0, 15, 0, 0, 0).getTime();
 
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = launchDate - now;
+    const display = document.getElementById("countdown");
+
+    if (distance <= 0) {
+      display.textContent = "ANANTA IS NOW AVAILABLE!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    display.textContent =
+      `${days} Days : ${hours} Hours : ${minutes} Minutes : ${seconds} Seconds`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
