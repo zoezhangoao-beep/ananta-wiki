@@ -364,13 +364,27 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    min-height: auto;
-    flex-wrap: wrap;
-    gap: 14px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
+ .navbar {
+  min-height: 68px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.logo {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.nav-search {
+  width: 150px;
+  flex-shrink: 0;
+  padding: 8px 10px;
+}
 
   .logo {
     font-size: 21px;
@@ -389,10 +403,12 @@ h1 {
     gap: 16px;
   }
 
-  .hero {
-    min-height: 560px;
-    background-position: center, 65% center;
-  }
+ .hero {
+  min-height: 560px;
+  background-size: cover;
+  background-position: center, 72% center;
+  background-repeat: no-repeat;
+}
 
   .hero-content {
     padding: 55px 0;
@@ -453,6 +469,30 @@ h1 {
 
   .countdown-box strong {
     font-size: 21px;
+  }
+}
+    @media (max-width: 768px) {
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    gap: 6px;
+  }
+
+  .countdown-box {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 2px;
+  }
+
+  .countdown-box strong {
+    font-size: 20px;
+  }
+
+  .countdown-box span {
+    font-size: 9px;
+    letter-spacing: 0;
   }
 }
   </style>
