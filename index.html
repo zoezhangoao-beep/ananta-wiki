@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ANANTA Wiki - Your ultimate guide to characters, locations, gameplay, guides and information.">
+  <title>ANANTA Wiki - Game Database & Guides</title>
+  <style>
+    :root {
+      --bg: #101114;
+      --panel: #191b20;
+      --panel2: #202229;
+      --gold: #d8b879;
+      --text: #f4f3ef;
+      --muted: #999ba5;
+      --border: #30323a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1160px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: #15161a;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span { color: var(--gold); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav a {
+      color: #c6c6ca;
+      font-size: 14px;
+      transition: color .2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, #101114 8%, rgba(16,17,20,.88) 48%, rgba(16,17,20,.25)),
+        radial-gradient(ellipse at 75% 45%, #51483a 0%, #29262a 35%, #101114 75%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-content { padding: 75px 0; max-width: 620px; }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 68px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      color: #c2c2c7;
+      max-width: 500px;
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: #171717;
+      padding: 12px 22px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .button:hover { background: #ead19e; }
+
+    section { padding: 65px 0; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      gap: 15px;
+    }
+
+    h2 { font-size: 25px; }
+
+    .section-heading span {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 24px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      background: #302a20;
+      color: var(--gold);
+      border-radius: 8px;
+      font-size: 23px;
+      margin-bottom: 17px;
+    }
+
+    .card h3 { font-size: 18px; margin-bottom: 7px; }
+
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .database { background: #15161a; }
+
+    .database .card { background: var(--panel2); }
+
+    .search {
+      display: flex;
+      max-width: 550px;
+      margin-top: 25px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .search input {
+      flex: 1;
+      min-width: 0;
+      padding: 14px;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      color: white;
+      font-size: 14px;
+    }
+
+    .search button {
+      padding: 0 20px;
+      border: 0;
+      background: var(--gold);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .news-card {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .news-icon {
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: #302a20;
+      border-radius: 8px;
+      color: var(--gold);
+      font-size: 27px;
+    }
+
+    .news-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .navbar { flex-wrap: wrap; padding: 16px 0; }
+      nav { width: 100%; gap: 15px; flex-wrap: wrap; }
+      nav a { font-size: 12px; }
+      .hero { min-height: 360px; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 45px 0; }
+    }
+
+    @media (max-width: 420px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#" class="logo">ANANTA <span>WIKI</span></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#characters">Characters</a>
+      <a href="#database">Database</a>
+      <a href="#guides">Guides</a>
+      <a href="#news">News</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="eyebrow">THE ULTIMATE GAME DATABASE</div>
+      <h1>Welcome to<br>ANANTA Wiki</h1>
+      <p>
+        Your ultimate destination for ANANTA information.
+        Explore characters, locations, gameplay guides,
+        items and everything about the game.
+      </p>
+      <a href="#database" class="button">Explore Database →</a>
+    </div>
+  </section>
+
+  <section id="characters">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Featured Characters</h2>
+        <span>CHARACTER DATABASE</span>
+      </div>
+
+      <div class="cards">
+        <a class="card" href="#database">
+          <div class="card-icon">♙</div>
+          <h3>Characters</h3>
+          <p>Discover character profiles and information.</p>
+        </a>
+        <a class="card" href="#database">
+          <div class="card-icon">✦</div>
+          <h3>Abilities</h3>
+          <p>Explore abilities and gameplay mechanics.</p>
+        </a>
+        <a class="card" href="#database">
+          <div class="card-icon">⚔</div>
+          <h3>Combat</h3>
+          <p>Learn about combat systems and techniques.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="database" id="database">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Game Database</h2>
+        <span>EXPLORE ANANTA</span>
+      </div>
+
+      <div class="cards">
+        <a class="card" href="#characters">
+          <div class="card-icon">♟</div>
+          <h3>Characters</h3>
+          <p>Character profiles and details.</p>
+        </a>
+        <a class="card" href="#guides">
+          <div class="card-icon">⌖</div>
+          <h3>Locations & Maps</h3>
+          <p>Explore the world and its locations.</p>
+        </a>
+        <a class="card" href="#guides">
+          <div class="card-icon">⚔</div>
+          <h3>Weapons</h3>
+          <p>Weapons and combat equipment.</p>
+        </a>
+        <a class="card" href="#guides">
+          <div class="card-icon">◇</div>
+          <h3>Items & Resources</h3>
+          <p>Discover useful items and resources.</p>
+        </a>
+        <a class="card" href="#guides">
+          <div class="card-icon">☰</div>
+          <h3>Missions & Quests</h3>
+          <p>Mission information and walkthroughs.</p>
+        </a>
+        <a class="card" href="#guides">
+          <div class="card-icon">⌘</div>
+          <h3>Game Mechanics</h3>
+          <p>Understand gameplay systems.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="guides">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Guides & Tips</h2>
+        <span>LEARN MORE</span>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">✧</div>
+          <h3>Beginner's Guide</h3>
+          <p>Everything new players need to know.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">◈</div>
+          <h3>Exploration Guide</h3>
+          <p>Learn about exploration and discovery.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✦</div>
+          <h3>Combat Guide</h3>
+          <p>Understand combat and battle strategies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="database" id="news">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Latest News & Updates</h2>
+        <span>NEWS</span>
+      </div>
+
+      <div class="card news-card">
+        <div class="news-icon">✦</div>
+        <div>
+          <h3>ANANTA News & Updates</h3>
+          <p>Check back for the latest game news and updates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>ANANTA Wiki is an independent fan-made website.</p>
+    <p>Not affiliated with the official game developers.</p>
+    <p>© 2026 ANANTA Wiki. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
