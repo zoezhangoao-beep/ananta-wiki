@@ -477,7 +477,97 @@ h1 {
   .countdown-box span {
     font-size: 8px;
   }
+}/* Featured Characters */
+#characters .cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
+
+#characters .card {
+  min-height: 220px;
+  padding: 26px;
+  background: linear-gradient(145deg, #202024, #151518);
+  border: 1px solid #39383a;
+  border-radius: 10px;
+}
+
+#characters .card-icon {
+  width: 54px;
+  height: 54px;
+  font-size: 26px;
+  border: 1px solid rgba(216, 184, 121, 0.25);
+}
+
+@media (max-width: 768px) {
+  #characters .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  #characters .card {
+    min-height: 190px;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  #characters .cards {
+    grid-template-columns: 1fr;
+  }
+}
+    
+/* Featured Characters - Image Areas */
+#characters .card-image {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #29272a, #151518);
+  border: 1px solid #39383a;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+#characters .card-image span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  #characters .card-image {
+    height: 150px;
+  }
+}
+
+@media (max-width: 420px) {
+  #characters .card-image {
+    height: 180px;
+  }
+}
+
+#characters .character-image {
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(190, 157, 100, 0.22), transparent 55%),
+    linear-gradient(145deg, #302a26, #171719);
+}
+
+#characters .abilities-image {
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(120, 110, 150, 0.2), transparent 55%),
+    linear-gradient(145deg, #292631, #171719);
+}
+
+#characters .combat-image {
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(150, 90, 70, 0.22), transparent 55%),
+    linear-gradient(145deg, #302522, #171719);
+}
+
   </style>
 </head>
 
@@ -558,25 +648,33 @@ h1 {
         <span>CHARACTER DATABASE</span>
       </div>
 
-      <div class="cards">
-        <a class="card" href="#database">
-          <div class="card-icon">♙</div>
-          <h3>Characters</h3>
-          <p>Discover character profiles and information.</p>
-        </a>
-        <a class="card" href="#database">
-          <div class="card-icon">✦</div>
-          <h3>Abilities</h3>
-          <p>Explore abilities and gameplay mechanics.</p>
-        </a>
-        <a class="card" href="#database">
-          <div class="card-icon">⚔</div>
-          <h3>Combat</h3>
-          <p>Learn about combat systems and techniques.</p>
-        </a>
-      </div>
+<div class="cards">
+  <a class="card" href="#database">
+    <div class="card-image character-image">
+      <span>CHARACTER</span>
     </div>
-  </section>
+    <h3>Characters</h3>
+    <p>Discover character profiles and information.</p>
+  </a>
+
+  <a class="card" href="#database">
+    <div class="card-image abilities-image">
+      <span>ABILITIES</span>
+    </div>
+    <h3>Abilities</h3>
+    <p>Explore abilities and gameplay mechanics.</p>
+  </a>
+
+  <a class="card" href="#database">
+    <div class="card-image combat-image">
+      <span>COMBAT</span>
+    </div>
+    <h3>Combat</h3>
+    <p>Learn about combat systems and techniques.</p>
+  </a>
+</div>
+</div>
+</section>
 
   <section class="database" id="database">
     <div class="container">
