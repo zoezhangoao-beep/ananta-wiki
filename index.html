@@ -364,35 +364,26 @@ h1 {
 }
 
 @media (max-width: 768px) {
- .navbar {
-  min-height: 68px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.logo {
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.nav-search {
-  width: 150px;
-  flex-shrink: 0;
-  padding: 8px 10px;
-}
+  .navbar {
+    min-height: 68px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 
   .logo {
-    font-size: 21px;
+    font-size: 18px;
+    flex-shrink: 0;
   }
 
   .nav-search {
-    width: 190px;
-    max-width: 100%;
+    width: 150px;
+    flex-shrink: 0;
+    padding: 8px 10px;
   }
 
   nav {
@@ -403,16 +394,17 @@ h1 {
     gap: 16px;
   }
 
- .hero {
-  min-height: 560px;
-  background-size: cover;
-  background-position: center, 72% center;
-  background-repeat: no-repeat;
-}
+  .hero {
+    min-height: 560px;
+    background-size: cover;
+    background-position: center, 72% center;
+    background-repeat: no-repeat;
+  }
 
   .hero-content {
     padding: 55px 0;
     max-width: 100%;
+    width: 100%;
   }
 
   h1 {
@@ -428,6 +420,8 @@ h1 {
   }
 
   .countdown-banner {
+    width: 100%;
+    box-sizing: border-box;
     padding: 12px 0;
   }
 
@@ -436,54 +430,21 @@ h1 {
   }
 
   .countdown-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .countdown-box {
-    min-width: 0;
-    padding: 10px 4px;
-  }
-
-  .countdown-box strong {
-    font-size: 24px;
-  }
-
-  .countdown-box span {
-    font-size: 9px;
-  }
-}
-
-@media (max-width: 420px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .nav-search {
-    width: 100%;
-  }
-
-  .countdown-grid {
-    gap: 6px;
-  }
-
-  .countdown-box strong {
-    font-size: 21px;
-  }
-}
-    @media (max-width: 768px) {
-  .countdown-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     width: 100%;
-    gap: 6px;
+    max-width: 100%;
+    box-sizing: border-box;
+    gap: 8px;
+    margin: 25px 0 20px;
   }
 
   .countdown-box {
-    min-width: 0;
+    display: block;
     width: 100%;
+    min-width: 0;
     box-sizing: border-box;
-    padding: 10px 2px;
+    padding: 12px 2px;
   }
 
   .countdown-box strong {
@@ -493,6 +454,28 @@ h1 {
   .countdown-box span {
     font-size: 9px;
     letter-spacing: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .countdown-grid {
+    gap: 5px;
+  }
+
+  .countdown-box {
+    padding: 10px 1px;
+  }
+
+  .countdown-box strong {
+    font-size: 18px;
+  }
+
+  .countdown-box span {
+    font-size: 8px;
   }
 }
   </style>
