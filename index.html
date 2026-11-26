@@ -108,39 +108,82 @@
       gap: 24px;
     }
 
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
+   .logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  white-space: nowrap;
+}
 
     .logo span { color: var(--gold); }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-    }
+   nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  white-space: nowrap;
+}
 
-    nav a {
-      color: #c6c6ca;
-      font-size: 14px;
-      transition: color .2s;
-    }
+   nav a {
+  color: #c6c6ca;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: color .2s;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
 
     nav a:hover { color: var(--gold); }
+    .nav-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 210px;
+flex-shrink: 0;
+  padding: 10px 14px;
+  border: 1px solid #39383a;
+  border-radius: 6px;
+  background: #19191c;
+  color: var(--gold);
+}
+
+.nav-search span {
+  font-size: 20px;
+}
+
+.nav-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.nav-search input::placeholder {
+  color: #85858b;
+}
 
     .hero {
-      min-height: 430px;
+      min-height: 520px;
       display: flex;
       align-items: center;
      background:
-  linear-gradient(90deg, rgba(16,17,20,.88) 0%, rgba(16,17,20,.58) 48%, rgba(16,17,20,.12) 100%),
-  url("ananta_hero_background_preview.png") center 45% / cover no-repeat;
+ linear-gradient(90deg, rgba(16,17,20,.92) 0%, rgba(16,17,20,.68) 45%, rgba(16,17,20,.18) 100%),
+  url("ananta_hero_background_preview.png") center 50% / cover no-repeat;
       border-bottom: 1px solid var(--border);
     }
 
-    .hero-content {padding: 85px 0;max-width: 680px;}
+   .hero-content {
+  padding: 85px 0;
+  max-width: 720px;
+  width: 100%;
+}
 
     .eyebrow {
       color: var(--gold);
@@ -150,36 +193,45 @@
       margin-bottom: 16px;
     }
 
-  h1 {
-  font-size: clamp(48px, 7vw, 76px);
-  line-height: 1.08;
-  margin-bottom: 22px;
-  letter-spacing: -2px;
+h1 {
+  font-size: clamp(52px, 7.5vw, 82px);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  letter-spacing: -2.5px;
   font-weight: 800;
   color: #ffffff;
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
 }
 
-  .hero p {
-  color: #e2e2e5;
-  max-width: 520px;
+ .hero p {
+  color: #e5e3df;
+  max-width: 560px;
   font-size: 17px;
-  line-height: 1.8;
-  margin-bottom: 28px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  line-height: 1.9;
+  margin-bottom: 32px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
     .button {
-      display: inline-block;
-      background: var(--gold);
-      color: #171717;
-      padding: 12px 22px;
-      border-radius: 5px;
-      font-size: 14px;
-      font-weight: bold;
-    }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e5c58b, #c49a55);
+  color: #171717;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  transition: all .25s ease;
+  box-shadow: 0 4px 18px rgba(196, 154, 85, 0.2);
+}
 
-    .button:hover { background: #ead19e; }
+.button:hover {
+  background: linear-gradient(135deg, #f0d9ad, #d8b879);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 22px rgba(196, 154, 85, 0.3);
+}
 
     section { padding: 65px 0; }
 
@@ -303,17 +355,36 @@
     }
 
     @media (max-width: 700px) {
-      .navbar { flex-wrap: wrap; padding: 16px 0; }
-      nav { width: 100%; gap: 15px; flex-wrap: wrap; }
-      nav a { font-size: 12px; }
-      .hero { min-height: 360px; }
-      .cards { grid-template-columns: repeat(2, 1fr); }
-      section { padding: 45px 0; }
-    }
+    .navbar {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
 
     @media (max-width: 420px) {
       .cards { grid-template-columns: 1fr; }
     }
+      @media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .nav-search {
+    width: 190px;
+  }
+}
   </style>
 </head>
 
@@ -323,6 +394,7 @@
 <header>
   <div class="container navbar">
     <a href="#" class="logo">ANANTA <span>WIKI</span></a>
+
     <nav>
       <a href="#home">Home</a>
       <a href="#characters">Characters</a>
@@ -330,6 +402,11 @@
       <a href="#guides">Guides</a>
       <a href="#news">News</a>
     </nav>
+
+    <div class="nav-search">
+      <span>⌕</span>
+      <input type="search" placeholder="Search ANANTA Wiki...">
+    </div>
   </div>
 </header>
 
