@@ -768,6 +768,166 @@ h1 {
   }
 }
 
+/* Guides & Tips */
+#guides .section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+#guides .section-heading h2 {
+  font-size: 25px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+#guides .cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+#guides .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  padding: 22px;
+  background: linear-gradient(145deg, #202024, #151518);
+  border: 1px solid #39383a;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#guides .card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+}
+
+#guides .guide-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+#guides .guide-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: #302a20;
+  border: 1px solid rgba(216, 184, 121, 0.32);
+  border-radius: 8px;
+  color: var(--gold);
+  font-size: 22px;
+}
+
+#guides .guide-tag {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 4px;
+  background: rgba(216, 184, 121, 0.1);
+  border: 1px solid rgba(216, 184, 121, 0.32);
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#guides .guide-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+#guides .guide-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+#guides .guide-topics {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+  padding-left: 10px;
+  border-left: 2px solid rgba(216, 184, 121, 0.45);
+  flex: 1;
+}
+
+#guides .guide-topics li {
+  font-size: 12.5px;
+  color: #dcd6c8;
+  line-height: 1.45;
+}
+
+#guides .guide-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  #guides .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  #guides .card {
+    min-width: 0;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  #guides .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+
+  #guides .section-heading h2 {
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+  }
+
+  #guides .section-heading span {
+    font-size: 11px;
+    letter-spacing: 1.8px;
+  }
+
+  #guides .cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
   </style>
 </head>
 
@@ -927,26 +1087,55 @@ h1 {
   <section id="guides">
     <div class="container">
       <div class="section-heading">
-        <h2>Guides & Tips</h2>
+        <h2>Guides &amp; Tips</h2>
         <span>LEARN MORE</span>
       </div>
 
       <div class="cards">
-        <div class="card">
-          <div class="card-icon">✧</div>
-          <h3>Beginner's Guide</h3>
-          <p>Everything new players need to know.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">◈</div>
-          <h3>Exploration Guide</h3>
-          <p>Learn about exploration and discovery.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">✦</div>
-          <h3>Combat Guide</h3>
-          <p>Understand combat and battle strategies.</p>
-        </div>
+        <a class="card" href="guides/beginners-guide.html">
+          <div class="guide-card-top">
+            <div class="guide-icon" aria-hidden="true">✧</div>
+            <span class="guide-tag">Starter Guide</span>
+          </div>
+          <h3 class="guide-title">Beginner's Guide</h3>
+          <p class="guide-desc">Essential starting point for new players learning ANANTA's urban premise, organizations, and confirmed characters.</p>
+          <ul class="guide-topics">
+            <li>Nova City &amp; Chongxiao overview</li>
+            <li>Confirmed groups: ACD, NCAA &amp; Cat Express</li>
+            <li>Captain, Taffy &amp; Richie introductions</li>
+          </ul>
+          <div class="guide-cta"><span>Read Beginner's Guide →</span></div>
+        </a>
+
+        <a class="card" href="guides/exploration-guide.html">
+          <div class="guide-card-top">
+            <div class="guide-icon" aria-hidden="true">◈</div>
+            <span class="guide-tag">World &amp; Traversal</span>
+          </div>
+          <h3 class="guide-title">Exploration Guide</h3>
+          <p class="guide-desc">How 3C movement, swinging traversal, vertical city layers, and vehicles work across Nova City and Chongxiao.</p>
+          <ul class="guide-topics">
+            <li>3C movement &amp; swinging traversal</li>
+            <li>Rooftops, mid-levels &amp; ground floors</li>
+            <li>Cars, taxis, buses, subways &amp; helicopters</li>
+          </ul>
+          <div class="guide-cta"><span>Read Exploration Guide →</span></div>
+        </a>
+
+        <a class="card" href="guides/combat-guide.html">
+          <div class="guide-card-top">
+            <div class="guide-icon" aria-hidden="true">✦</div>
+            <span class="guide-tag">Battle Basics</span>
+          </div>
+          <h3 class="guide-title">Combat Guide</h3>
+          <p class="guide-desc">Overview of environmental combat, disarming opponents, and counterattacks from official announcements.</p>
+          <ul class="guide-topics">
+            <li>Weaponized props: golf clubs &amp; trash bins</li>
+            <li>Disarming foes &amp; taking enemy weapons</li>
+            <li>Dodging, blocking &amp; counterattacking</li>
+          </ul>
+          <div class="guide-cta"><span>Read Combat Guide →</span></div>
+        </a>
       </div>
     </div>
   </section>
