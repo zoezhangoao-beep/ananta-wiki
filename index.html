@@ -477,140 +477,199 @@ h1 {
   .countdown-box span {
     font-size: 8px;
   }
-}/* Featured Characters */
+}
+
+/* Featured Characters */
+#characters .section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+#characters .section-heading h2 {
+  font-size: 25px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+#characters .character-heading-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#characters .character-eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+#characters .character-all-link {
+  color: #c6c6ca;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(216, 184, 121, 0.35);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+#characters .character-all-link:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
 #characters .cards {
+  display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
+  align-items: stretch;
 }
 
 #characters .card {
-  min-height: 220px;
-  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  padding: 20px;
   background: linear-gradient(145deg, #202024, #151518);
   border: 1px solid #39383a;
   border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-#characters .card-icon {
-  width: 54px;
-  height: 54px;
-  font-size: 26px;
-  border: 1px solid rgba(216, 184, 121, 0.25);
+#characters .card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+#characters .character-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #39383a;
+  margin-bottom: 16px;
+  background: #141519;
+}
+
+#characters .character-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#characters .character-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 52%, rgba(16, 17, 20, 0.86) 100%);
+  pointer-events: none;
+}
+
+#characters .character-role-badge {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  z-index: 1;
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: rgba(16, 17, 20, 0.84);
+  border: 1px solid rgba(216, 184, 121, 0.45);
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+#characters .character-name {
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+#characters .character-tagline {
+  font-size: 12.5px;
+  font-style: italic;
+  color: #e6d3aa;
+  border-left: 2px solid var(--gold);
+  padding-left: 10px;
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+
+#characters .character-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+#characters .character-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
 }
 
 @media (max-width: 768px) {
   #characters .cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  #characters .card {
-    min-height: 190px;
-    padding: 18px;
-  }
-}
-
-@media (max-width: 420px) {
-  #characters .cards {
-    grid-template-columns: 1fr;
-  }
-}
-    
-/* Featured Characters - Image Areas */
-#characters .card-image {
-  width: 100%;
-  height: 180px;
-  display: flex;
-  align-items: flex-end;
-  padding: 14px;
-  box-sizing: border-box;
-  background: linear-gradient(145deg, #29272a, #151518);
-  border: 1px solid #39383a;
-  border-radius: 8px;
-  margin-bottom: 18px;
-  overflow: hidden;
-}
-
-#characters .card-image span {
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-@media (max-width: 768px) {
-  #characters .card-image {
-    height: 150px;
-  }
-}
-
-@media (max-width: 420px) {
-  #characters .card-image {
-    height: 180px;
-  }
-}
-
-#characters .character-image {
-  background:
-    linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.65)),
-    url("nETMUUkjNQXnGzS7aX9TvVjFR78L3JsrbVXHeCTIhOxmba20jxB2VwvGPy_pSf6V1224vsa6bBcRPp_y4us8NhyKsnsXP36RqmeiRW3NvTZ2pe41EDbdOFfh428Urh9co_QYwA7OGR64T8FDhHZW4C9eiAQHL1-z8AbFMHqC1N-7DRT4woSWbgTM6HjHVVL5.jfif") center 30% / cover no-repeat;
-}
-
-#characters .abilities-image {
-  background:
-    linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.65)),
-    url("7nfbtd2OFcp8BEvrmf9P4oGgVSaz8rePx9zde41we6a3krtafONKbrmUaP7KKQONp8oIklPHAI-VdqrcogTogHJcCibQwH-wQ5xWn1TcwfZfehKTvMmOddslQaT5BBTH8FggkYr6cDg0HnBPLqUS-byZNolmnzOWu06Qm-Lh_LVLyYbC-gs8OFNjrMRnl4oT.jfif") left center / cover no-repeat;
-}
-
-
-#characters .combat-image {
-  background:
-    linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.65)),
-    url("4foIrQ5bJ9a1hK_cHeWsROYIVpnvEOfqtBxlMwF3IpEjqq6SKXxHGPYhdhZrMmTyimAOqLI7j-sG-Tt0xtrAkTm5iDkawhuoMM5jQxW6nUXMrj-pOrIRER7qCf_WHvTe7tVoPQMnnG9LM_XMq--NPeNDTQNVM0mZ5Z4Gel1VgtneSFP-Mcq30WhBr56mD7nB.jfif") center 30% / cover no-repeat;
-}
-
-
-@media (max-width: 768px) {
-  #characters .section-heading {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    flex-wrap: nowrap;
-  }
-
-  #characters .section-heading h2 {
-    font-size: clamp(16px, 4.5vw, 22px);
-    white-space: nowrap;
-    margin: 0;
-  }
-
-  #characters .section-heading span {
-    font-size: 9px;
-    white-space: nowrap;
-    letter-spacing: 1px;
-  }
-}
-
-@media (max-width: 768px) {
-  #characters .cards {
-    column-gap: 12px;
-    row-gap: 14px;
+    gap: 14px;
   }
 
   #characters .card {
     min-width: 0;
-    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 520px) {
+  #characters .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 18px;
   }
 
-  #characters .card h3 {
-    font-size: 16px;
+  #characters .section-heading h2 {
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.2px;
   }
 
-  #characters .card p {
-    font-size: 12px;
-    line-height: 1.6;
+  #characters .character-heading-right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  #characters .character-eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.8px;
+  }
+
+  #characters .cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
 
@@ -1005,80 +1064,44 @@ h1 {
     <div class="container">
       <div class="section-heading">
         <h2>Featured Characters</h2>
-        <span>CHARACTER DATABASE</span>
+        <div class="character-heading-right">
+          <span class="character-eyebrow">CHARACTER ROSTER</span>
+          <a class="character-all-link" href="#database">All Characters →</a>
+        </div>
       </div>
 
-<div class="cards">
-  <a class="card" href="#database">
-    <div class="card-image character-image">
-      <span>CHARACTER</span>
-    </div>
-    <h3>Characters</h3>
-    <p>Discover character profiles and information.</p>
-  </a>
-
-  <a class="card" href="#database">
-    <div class="card-image abilities-image">
-      <span>ABILITIES</span>
-    </div>
-    <h3>Abilities</h3>
-    <p>Explore abilities and gameplay mechanics.</p>
-  </a>
-
-  <a class="card" href="#database">
-    <div class="card-image combat-image">
-      <span>COMBAT</span>
-    </div>
-    <h3>Combat</h3>
-    <p>Learn about combat systems and techniques.</p>
-  </a>
-</div>
-</div>
-</section>
-
-  <section class="database" id="database">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Game Database</h2>
-        <span>EXPLORE ANANTA</span>
-      </div>
-
-   
-      <div class="cards database-cards">
-        <a class="card" href="#characters">
-          <img class="database-image" src="database-characters.jfif" alt="ANANTA Characters" loading="lazy">
-          <h3>Characters</h3>
-          <p>Character profiles and details.</p>
+      <div class="cards">
+        <a class="card" href="#database">
+          <div class="character-media">
+            <img src="images/characters/captain.jpg" alt="Captain — ACD Task Force" loading="lazy">
+            <span class="character-role-badge">ACD Task Force</span>
+          </div>
+          <h3 class="character-name">Captain</h3>
+          <p class="character-tagline">"Traffic jam? Time to fly."</p>
+          <p class="character-desc">Captain of the ACD task force, featured on the official ANANTA global website.</p>
+          <div class="character-cta"><span>View in Character Database →</span></div>
         </a>
 
-        <a class="card" href="#guides">
-          <img class="database-image" src="database-locations.jfif" alt="ANANTA Locations and Maps" loading="lazy">
-          <h3>Locations & Maps</h3>
-          <p>Explore the world and its locations.</p>
+        <a class="card" href="#database">
+          <div class="character-media">
+            <img src="images/characters/taffy.jpg" alt="Taffy — ANANTA ACD" loading="lazy">
+            <span class="character-role-badge">ACD · Delivery</span>
+          </div>
+          <h3 class="character-name">Taffy</h3>
+          <p class="character-tagline">"Ugh, work stinks! Never shoulda taken this job."</p>
+          <p class="character-desc">Official ANANTA character associated with the ACD and delivery work.</p>
+          <div class="character-cta"><span>View in Character Database →</span></div>
         </a>
 
-        <a class="card" href="#guides">
-          <img class="database-image" src="database-weapons.jfif" alt="ANANTA Weapons" loading="lazy">
-          <h3>Weapons</h3>
-          <p>Weapons and combat equipment.</p>
-        </a>
-
-        <a class="card" href="#guides">
-          <img class="database-image" src="database-items.jfif" alt="ANANTA Items and Resources" loading="lazy">
-          <h3>Items & Resources</h3>
-          <p>Discover useful items and resources.</p>
-        </a>
-
-        <a class="card" href="#guides">
-          <img class="database-image" src="database-missions.jfif" alt="ANANTA Missions and Quests" loading="lazy">
-          <h3>Missions & Quests</h3>
-          <p>Mission information and walkthroughs.</p>
-        </a>
-
-        <a class="card" href="#guides">
-          <img class="database-image" src="database-mechanics.jfif" alt="ANANTA Game Mechanics" loading="lazy">
-          <h3>Game Mechanics</h3>
-          <p>Understand gameplay systems.</p>
+        <a class="card" href="#database">
+          <div class="character-media">
+            <img src="images/characters/richie.jpg" alt="Richie — ANANTA ACD" loading="lazy">
+            <span class="character-role-badge">ACD</span>
+          </div>
+          <h3 class="character-name">Richie</h3>
+          <p class="character-tagline">"It's a shot in the dark, but I gotta go with my gut."</p>
+          <p class="character-desc">Official ANANTA character described as a major boon to the ACD team, fighting crime by day and moonlighting at night.</p>
+          <div class="character-cta"><span>View in Character Database →</span></div>
         </a>
       </div>
     </div>
